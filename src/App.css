@@ -1,0 +1,148 @@
+/* light: #F7FCFB
+muted: #4C5B5C
+dark: #0E3B43
+bright: #A6D39E
+accent: #FF9B42 */
+
+@import url('https://fonts.googleapis.com/css?family=Lobster|Roboto');
+
+/* Global styles */
+
+h2 {
+  font: 30px 'Lobster', sans-serif;
+  margin: 0 10px 0 0;
+}
+
+button {
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font: 24px 'Lobster', sans-serif;
+  border: none;
+  box-shadow: 3px 3px 10px #4C5B5C;
+  cursor: pointer;
+}
+
+.forms {
+  position: relative;
+  width: 60%;
+  height: 50vh;
+  margin: 75px;
+  border-radius: 5px;
+  padding: 75px;
+  background: #A6D39E;
+  box-shadow: 3px 3px 10px #4C5B5C;
+}
+
+.right_button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 150px;
+}
+
+.left_button {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  width: 150px;
+}
+
+input {
+  height: 30px;
+  margin: 0 0 0 20px;
+  border-radius: 5px;
+  border: none;
+  padding: 0 7px;
+  box-shadow: 3px 3px 10px #4C5B5C;
+  font: 16px 'Roboto', sans-serif;
+}
+
+li {
+  margin: 0 0 3px;
+  word-wrap: break-word;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+.list {
+  width: 110%;
+  padding: 10px 0 0 30px;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+
+/* App Component styles */
+
+.App {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #F7FCFB;
+  color: #0E3B43;
+  font-family: Roboto;
+}
+
+header {
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  background: #4C5B5C;
+  box-shadow: 0px 3px 10px #4C5B5C;
+}
+
+h1 {
+  margin: 0 40px;
+  font: 50px 'Lobster', sans-serif;
+  color: #A6D39E;
+}
+
+
+/* Name & Author Styles */
+
+.input_container {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* Ingredients & Instructions styles  */
+
+.form_items_container {
+  height: 50%;
+  margin: 10px 0 0 0;
+  overflow: hidden;
+}
+
+.List input {
+  width: 70%;
+  margin: 0;
+}
+
+.add_button {
+  height: 32px;
+  width: 175px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.add_container {
+  position: absolute;
+  bottom: 120px;
+  width: calc(100% - 75px - 75px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
