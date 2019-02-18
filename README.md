@@ -4,9 +4,6 @@
 
 In this project, we'll create an application to create and view recipe cards using React and Redux.
 
-# Live Example
-
-<a href="https://devmountain.github.io/react-5-mini/">[FIX ME WHEN HOSTED] Click Me!</a>
 
 ## Setup
 
