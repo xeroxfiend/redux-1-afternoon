@@ -24,25 +24,25 @@ In this step, we'll install some new dependencies, create a reducer, and create 
 - Open `/src/store.js`.
 - Import `createStore` from Redux.
 - Create an empty initial state object.
-- Write a simple reducer. It should just return state by default.
+- Write a simple reducer. It should return state by default.
 - Create and export a Redux store.
 
 <details>
 <summary>Detailed Instructions</summary>
 
-In Redux, components need to connect to a store. Let's create this store. Open `store.js`. We'll only be needing one thing from `redux`: `createStore`. `createStore` does exactly what the name would imply.
+In Redux, components need to connect to a store. Let's create this store. Open `store.js`. We'll only be needing one thing from `redux`: `createStore`. `createStore` does exactly what the name implies.
 
 ```js
 import { createStore } from "redux";
 ```
 
-In order to create our store, we'll also need to create our initial state and reducer. Let's start with state. Our state will be empty for now.
+In order to create our store, we'll also need to create our initial state and reducer. Let's start with state. Our state will be an empty object for now.
 
 ```js
 const initialState = {};
 ```
 
-Now that our initial state is set up, let's build a basic `reducer`. The `reducer` is a function that takes in two things: `state` and an `action`. Let's use our `initialState` as the default value for `state`.
+Now that our initial state is set up, let's build a basic `reducer`. The `reducer` is a function that takes in two things: `state` and an `action`. Let's use our `initialState` as the default value for our `state` parameter.
 
 ```js
 function reducer(state = initialState, action) {}
@@ -1162,6 +1162,30 @@ export default Home;
 
 - When we create a recipe, the fields in our form don't clear. Create another action type to clear the fields when we create a new recipe.
 - Right now each recipe displays a delete button that doesn't do anything. Create another action type to delete a recipe and hook it up to the delete button.
+
+## Resources
+
+<details>
+
+<summary> <code> Redux </code> </summary>
+
+* [Getting Started](https://redux.js.org/introduction/getting-started)
+* [Core Concepts](https://redux.js.org/introduction/core-concepts)
+* [Basic Tutorial](https://redux.js.org/basics/basic-tutorial)
+_Note: Each section covers a foundational redux concept. Stop at the Usage With React section. We'll cover that in a future lecture._
+
+</details>
+
+<details>
+
+<summary> <code> Object Rest Spread </code> </summary>
+
+* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#Spread_in_object_literals)
+* [TC39 Proposal](https://github.com/tc39/proposal-object-rest-spread)
+
+</details>
+
+
 
 ## Contributions
 
