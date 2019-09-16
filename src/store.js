@@ -4,8 +4,8 @@ import {createStore} from "redux";
 const initialState = {
   name: "",
   category: "",
-  authorFirstName: "",
-  authorLastName: "",
+  authorFirst: "",
+  authorLast: "",
   ingredients: [],
   instructions: [],
   recipes: []
@@ -19,41 +19,68 @@ export const UPDATE_LAST_NAME = "UPDATE_LAST_NAME";
 export const UPDATE_INGREDIENTS = "UPDATE_INGREDIENTS";
 export const UPDATE_INSTRUCTIONS = "UPDATE_INSTRUCTIONS";
 export const CREATE_RECIPE = "CREATE_RECIPE";
+export const DELETE_RECIPE = "DELETE_RECIPE";
 
 //reducer
 function reducer(state = initialState, action) {
   switch (action.type) {
+    case DELETE_RECIPE:
+      const recipesCopy = [...state.recipes];
+      recipesCopy.splice(action.payload, 1);
+      return {...state, recipes: recipesCopy};
+
     case UPDATE_NAME:
       return {...state, name: action.payload};
 
     case UPDATE_CATEGORY:
-      return {...state, cateogry: action.payload};
+      return {...state, category: action.payload};
 
     case UPDATE_FIRST_NAME:
-      return {...state, authorFirstName: action.payload};
+      return {...state, authorFirst: action.payload};
 
     case UPDATE_LAST_NAME:
-      return {...state, authorLastName: action.payload};
+      return {...state, authorLast: action.payload};
 
     case UPDATE_INGREDIENTS:
       const newIngredients = [...state.ingredients, action.payload];
       return {...state, ingredients: newIngredients};
 
     case UPDATE_INSTRUCTIONS:
-      const newInstructions = [...state.ingredients, action.payload];
+      const newInstructions = [...state.instructions, action.payload];
       return {...state, instructions: newInstructions};
 
     case CREATE_RECIPE:
-      const newRecipe = [
-        ...state.recipes,
-        this.state.name,
-        this.state.category,
-        this.state.authorFirstName,
-        this.state.authorLastName,
-        this.state.ingredients,
-        this.state.instructions
-      ];
+      const {
+        name,
+        category,
+        authorFirst,
+        authorLast,
+        ingredients,
+        instructions
+      } = state;
+
+      const recipe = {
+        name,
+        category,
+        authorFirst,
+        authorLast,
+        ingredients,
+        instructions
+      };
+
+      const newRecipe = [...state.recipes, recipe];
       return {...state, recipes: newRecipe};
+
+    //   const newRecipe = [
+    //     ...state.recipes,
+    //     this.state.name,
+    //     this.state.category,
+    //     this.state.authorFirstName,
+    //     this.state.authorLastName,
+    //     this.state.ingredients,
+    //     this.state.instructions
+    //   ];
+    //   return {...state, recipes: newRecipe};
 
     default:
       return state;

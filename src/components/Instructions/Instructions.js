@@ -28,7 +28,7 @@ class Instructions extends Component {
   addInstruction() {
     store.dispatch({
       type: UPDATE_INSTRUCTIONS,
-      payload: this.state.instructions
+      payload: this.state.input
     })
     this.setState({
       input: ""
