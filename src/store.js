@@ -4,17 +4,19 @@ import {createStore} from "redux";
 const initialState = {
   name: "",
   category: "",
-  authorFirstName: '',
-  authorLastName: '',
-  ingredients: ''
+  authorFirstName: "",
+  authorLastName: "",
+  ingredients: [],
+  instructions: []
 };
 
 //action constants
 export const UPDATE_NAME = "UPDATE_NAME";
 export const UPDATE_CATEGORY = "UPDATE_CATEGORY";
-export const UPDATE_FIRST_NAME = 'UPDATE_FIRST_NAME'
-export const UPDATE_LAST_NAME = 'UPDATE_LAST_NAME'
-export const UPDATE_INGREDIENTS = 'UPDATE_INGREDIENTS'
+export const UPDATE_FIRST_NAME = "UPDATE_FIRST_NAME";
+export const UPDATE_LAST_NAME = "UPDATE_LAST_NAME";
+export const UPDATE_INGREDIENTS = "UPDATE_INGREDIENTS";
+export const UPDATE_INSTRUCTIONS = 'UPDATE_INSTRUCTIONS'
 
 //reducer
 function reducer(state = initialState, action) {
@@ -26,13 +28,18 @@ function reducer(state = initialState, action) {
       return {...state, cateogry: action.payload};
 
     case UPDATE_FIRST_NAME:
-        return {...state, authorFirstName: action.payload}
+      return {...state, authorFirstName: action.payload};
 
     case UPDATE_LAST_NAME:
-        return {...state, authorLastName: action.payload}
+      return {...state, authorLastName: action.payload};
 
     case UPDATE_INGREDIENTS:
-        return {...state, ingredients: action.payload}
+        const newIngredients = [...state.ingredients, action.payload]
+      return {...state, ingredients: newIngredients};
+
+    case UPDATE_INSTRUCTIONS:
+        const newInstructions = [...state.ingredients, action.payload]
+        return {...state, instructions: newInstructions}
 
     default:
       return state;

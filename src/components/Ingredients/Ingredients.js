@@ -15,7 +15,7 @@ class Ingredients extends Component {
   componentDidMount() {
     store.subscribe(() => {
       const reduxState = store.getState()
-      this.setState({ingredients: reduxState.ingredients })
+      this.setState({ingredients: reduxState.ingredients})
     })
   }
 
