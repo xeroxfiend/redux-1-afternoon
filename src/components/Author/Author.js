@@ -1,13 +1,15 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import './Author.css';
+import React, {Component} from "react";
+import {Link} from "react-router-dom";
+import "./Author.css";
+import store, {UPDATE_FIRST_NAME, UPDATE_LAST_NAME} from "../../store";
 
 class Author extends Component {
   constructor(props) {
     super(props);
+    const reduxState = store.getState();
     this.state = {
-      authorFirst: '',
-      authorLast: ''
+      authorFirst: reduxState.authorFirstName,
+      authorLast: reduxState.authorLastName
     };
   }
 
@@ -22,8 +24,15 @@ class Author extends Component {
       authorLast: nameVal
     });
   }
-  saveChanges() {
-    // Send data to Redux state
+  saveChanges(state) {
+    store.dispatch({
+      type: UPDATE_FIRST_NAME,
+      payload: state.authorFirst
+    });
+    store.dispatch({
+      type: UPDATE_LAST_NAME,
+      payload: state.authorLast
+    });
   }
   render() {
     return (
@@ -48,7 +57,7 @@ class Author extends Component {
           </button>
         </Link>
         <Link to="/add/ingredients">
-          <button onClick={() => this.saveChanges()} className="right_button">
+          <button onClick={() => this.saveChanges(this.state)} className="right_button">
             Next
           </button>
         </Link>
